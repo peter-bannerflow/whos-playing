@@ -12,7 +12,7 @@
     <title>Whos-Playing</title>
   </head>
   <body ng-controller="MainController" style="text-align:center">
-    <img class="logo" src="logo.png">
+    <img class="logo" src="images/logo.png">
     <div>
       <div ng-repeat="device in devices" style="display: inline-block;padding:10px">
         <div class="card text-center" style="width: 20rem;height: 27rem">
@@ -22,7 +22,7 @@
           <div class="card-block">
             <i ng-if="device.currentUserInfo == null" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" id="loader"></i>
             <p class="lead" ng-if="device.currentUserInfo != null" class="card-text">{{ device.currentUserInfo.display_name != null ? device.currentUserInfo.display_name : device.currentUsername }}</p>
-            <div ng-if="device.currentUserInfo.images.length == 0" class="profile-picture" ng-style="{ backgroundImage: 'url(profile.png)' }"></div>
+            <div ng-if="device.currentUserInfo.images.length == 0" class="profile-picture" ng-style="{ backgroundImage: 'url(images/profile.png)' }"></div>
             <div ng-if="device.currentUserInfo.images.length > 0" class="profile-picture" ng-style="{ backgroundImage: 'url('+device.currentUserInfo.images[0].url+')' }"></div>
             <a ng-if="device.currentUserInfo != null" href="{{ device.currentUserInfo.external_urls.spotify }}" class="btn btn-outline-success">Spotify profile</a>
           </div>
