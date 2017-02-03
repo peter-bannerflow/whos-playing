@@ -75,7 +75,7 @@ whosPlayingApp.controller('MainController', function MainController($scope, $tim
           });
         });
       });
-    }, 2000);
+    }, 5000);
   });
 
   browser.start();
