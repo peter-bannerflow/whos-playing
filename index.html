@@ -14,6 +14,10 @@
   <body ng-controller="MainController" style="text-align:center">
     <img class="logo" src="images/logo.png">
     <div>
+      <div ng-if="devices.length == 0" id="loader-white">
+        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+        <p><small>Loading devices...</small></p>
+      </div>
       <div ng-repeat="device in devices" style="display: inline-block;padding:10px">
         <div class="card text-center" style="width: 20rem;height: 27rem">
           <div class="card-header" style="height: 8rem">
@@ -21,7 +25,7 @@
           </div>
           <div class="card-block">
             <div ng-if="device.currentUserInfo == null">
-              <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" id="loader"></i>
+              <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" id="loader-grey"></i>
               <p>Loading user...</p>
             </div>
             <p class="lead" ng-if="device.currentUserInfo != null" class="card-text">{{ device.currentUserInfo.display_name != null ? device.currentUserInfo.display_name : device.currentUsername }}</p>

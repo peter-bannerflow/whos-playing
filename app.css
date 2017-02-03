@@ -17,6 +17,10 @@ body {
   padding-bottom: 30px;
 }
 
-#loader{
+#loader-grey{
   color: grey;
+}
+
+#loader-white{
+  color: white;
 }

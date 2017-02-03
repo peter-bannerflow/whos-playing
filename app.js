@@ -57,6 +57,7 @@ whosPlayingApp.controller('MainController', function MainController($scope, $tim
         'currentUserInfo' : null,
         'isQueryInProcess' : false
       });
+      console.log($scope.devices);
     });
 
     $interval(function(){
