@@ -1,0 +1,17 @@
+{
+  "name": "whos-playing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "mdns": "^2.3.3"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.5.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter Bergman",
+  "license": "ISC"
+}

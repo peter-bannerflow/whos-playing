@@ -1,0 +1,18 @@
+body {
+    background-image: url("bg.jpg");
+    padding: 30px;
+}
+
+.profile-picture{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.logo{
+  padding-bottom: 30px;
+}
