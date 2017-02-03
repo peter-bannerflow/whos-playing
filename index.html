@@ -20,7 +20,10 @@
             <h2><small>{{ device.name }}</small></h2>
           </div>
           <div class="card-block">
-            <i ng-if="device.currentUserInfo == null" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" id="loader"></i>
+            <div ng-if="device.currentUserInfo == null">
+              <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" id="loader"></i>
+              <p>Loading user...</p>
+            </div>
             <p class="lead" ng-if="device.currentUserInfo != null" class="card-text">{{ device.currentUserInfo.display_name != null ? device.currentUserInfo.display_name : device.currentUsername }}</p>
             <div ng-if="device.currentUserInfo.images.length == 0" class="profile-picture" ng-style="{ backgroundImage: 'url(images/profile.png)' }"></div>
             <div ng-if="device.currentUserInfo.images.length > 0" class="profile-picture" ng-style="{ backgroundImage: 'url('+device.currentUserInfo.images[0].url+')' }"></div>

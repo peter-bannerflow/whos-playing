@@ -16,3 +16,7 @@ body {
 .logo{
   padding-bottom: 30px;
 }
+
+#loader{
+  color: grey;
+}
