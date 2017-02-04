@@ -1,3 +1,3 @@
 # whos-playing
 Who the hell is playing?
-![screenshot](http://imgur.com/a/Jom4A)
+![screenshot](http://i.imgur.com/ZNUa7w9g.png)
