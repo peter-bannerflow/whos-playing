@@ -51,7 +51,7 @@ whosPlayingApp.controller('MainController', function MainController($scope, $tim
   browser.on('serviceUp', function (service) {
     $timeout(function () {
       $scope.devices.forEach(function (device, index) {
-        if (service.name.indexOf(device.name) != -1) {
+        if (service.name.indexOf(device.name) != -1 || service.ipAddress == device.ipAddress) {
           $scope.devices.splice(index, 1);
         }
       });
