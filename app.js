@@ -8,7 +8,7 @@ whosPlayingApp.controller('MainController', function MainController($scope, $tim
   var browser = mdns.createBrowser(mdns.tcp('spotify-connect'));
   $scope.devices = [];
 
-  $scope.getCurrentUserFromDevice = function(device, callback) {
+  var getCurrentUserFromDevice = function(device, callback) {
     console.log('Querying device at IP: ' + device.ipAddress);
     var responseData = '';
     var options = {
@@ -30,7 +30,7 @@ whosPlayingApp.controller('MainController', function MainController($scope, $tim
     http.request(options, requestCallback).end();
   }
 
-  $scope.getUserFromSpotify = function(user, callback) {
+  var getUserFromSpotify = function(user, callback) {
     var responseData = '';
     var options = {
       host: 'api.spotify.com',
@@ -48,8 +48,14 @@ whosPlayingApp.controller('MainController', function MainController($scope, $tim
     https.request(options, requestCallback).end();
   }
 
-  browser.on('serviceUp', function(service) {
-    $timeout(function(){
+  browser.on('serviceUp', function (service) {
+    $timeout(function () {
+      $scope.devices.forEach(function (device, index) {
+        if (service.name.indexOf(device.name) != -1) {
+          $scope.devices.splice(index, 1);
+        }
+      });
+
       $scope.devices.push({
         'name': service.name,
         'ipAddress': service.addresses[0],
@@ -67,10 +73,10 @@ whosPlayingApp.controller('MainController', function MainController($scope, $tim
 
         device.isQueryInProcess = true;
 
-        $scope.getCurrentUserFromDevice(device, function(user) {
+        getCurrentUserFromDevice(device, function(user) {
           device.currentUsername = user;
           device.isQueryInProcess = false;
-          $scope.getUserFromSpotify(user, function(spotifyUser) {
+          getUserFromSpotify(user, function(spotifyUser) {
             device.currentUserInfo = spotifyUser;
           });
         });
